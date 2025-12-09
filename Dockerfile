@@ -1,6 +1,5 @@
-
 # Stage 1: Build the Next.js application
-FROM node:20-alpine AS builder
+FROM node:20 AS builder
 
 WORKDIR /app
 
@@ -10,12 +9,12 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# Stage 2: Create the production-ready image
-FROM node:20-alpine AS runner
+# Stage 2: Production image
+FROM node:20 AS runner
 
 WORKDIR /app
-
-ENV NODE_ENV production
+ENV NODE_ENV=production
+ENV PORT=3000
 
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
