@@ -1,3 +1,9 @@
+import Navbar from "./Components/Navbar";
 export default function Home() {
-  return <h1>FEDORG</h1>;
+  return (
+    <>
+      <Navbar />
+      <h1>FEDORG</h1>
+    </>
+  );
 }
