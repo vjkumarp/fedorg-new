@@ -1,9 +1,9 @@
-import Navbar from "./Components/Navbar";
+import ComingSoon from "./Components/ComingSoon/ComingSoon";
+
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <h1>FEDORG</h1>
+      <ComingSoon />
     </>
   );
 }
