@@ -7,8 +7,8 @@ export default function Page() {
     <div className="comming-soon">
       <Image
         src="/fedorg.png"
-        width={500}
-        height={500}
+        width={280}
+        height={280}
         alt="FEDORG Coming Soon"
       />
       <h1>Coming Soon</h1>
