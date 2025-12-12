@@ -4,8 +4,9 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="comming-soon">
+    <div className="comming-soon ml-9">
       <Image
+        className="mb-72"
         src="/fedorg.png"
         width={280}
         height={280}
