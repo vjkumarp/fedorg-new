@@ -17,7 +17,7 @@ jobs:
     - name: Checkout Stage branch
       uses: actions/checkout@v4
       with:
-        ref: Stage
+        ref: refs/heads/stage
         fetch-depth: 1
 
     # ----------------------------------------
