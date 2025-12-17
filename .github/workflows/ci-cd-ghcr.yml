@@ -1,7 +1,9 @@
-name: Stage - Manual Build & Deploy
+name: Stage - Auto Build & Deploy
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - stage
 
 env:
   IMAGE_NAME: vjkumarp/fedorg-new
