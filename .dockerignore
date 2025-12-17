@@ -5,3 +5,4 @@ READ.md
 .next
 .git
 .env
+vite.config.ts

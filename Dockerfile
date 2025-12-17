@@ -1,37 +1,34 @@
-# Stage 1: Build the Next.js application
-FROM node:22 AS builder
+# Stage 1: Build
+FROM node:20-alpine AS builder
 
+# Set working directory
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+# Copy package files first (better caching)
+COPY package*.json ./
 
-RUN npm install
+# Install dependencies (include dev for build tools like vite/typescript)
+RUN npm ci --include=dev
 
-RUN npm ci
-
+# Copy rest of the project
 COPY . .
 
-EXPOSE 3000
-
+# Build the app
 RUN npm run build
 
-# Stage 2: Production image
-FROM node:22 AS runner
+# Stage 2: Production
+FROM node:20-alpine AS runner
 
 WORKDIR /app
 
-ENV NODE_ENV=production
-
-ENV PORT=3000
-
+# Copy only necessary files from builder
+COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/.next ./.next
-
+COPY --from=builder /app/public ./public
 COPY --from=builder /app/node_modules ./node_modules
 
-COPY --from=builder /app/public ./public
-
-COPY package.json ./package.json
-
+# Expose port (Next.js defaults to 3000)
 EXPOSE 3000
 
+# Start the app
 CMD ["npm", "start"]

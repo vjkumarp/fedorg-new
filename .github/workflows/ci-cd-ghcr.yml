@@ -1,7 +1,9 @@
-name: Stage - Manual Build & Deploy
+name: Stage - Auto Build & Deploy
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - stage
 
 env:
   IMAGE_NAME: vjkumarp/fedorg-new
@@ -14,10 +16,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout stage branch
+    - name: Checkout Stage branch
       uses: actions/checkout@v4
       with:
-        ref: stage
+        ref: Stage
+        fetch-depth: 1
 
     # ----------------------------------------
     # Generate SHA-based tag
