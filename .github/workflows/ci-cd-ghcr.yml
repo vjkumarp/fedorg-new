@@ -1,4 +1,4 @@
-name: Stage - Auto Build & Deploy
+name: stage - Auto Build & Deploy
 
 on:
   push:
@@ -16,11 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Stage branch
+    - name: Checkout stage branch
       uses: actions/checkout@v4
-      with:
-        ref: Stage
-        fetch-depth: 1
 
     # ----------------------------------------
     # Generate SHA-based tag
