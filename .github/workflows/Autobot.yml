@@ -3,7 +3,7 @@ name: Master - Auto Build & Deploy
 on:
   push:
     branches:
-      - master
+      - Master
 
 env:
   IMAGE_NAME: vjkumarp/fedorg-new
