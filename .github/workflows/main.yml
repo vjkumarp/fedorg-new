@@ -1,4 +1,4 @@
-name: stage - Auto Build & Deploy
+name: Master - Auto Build & Deploy
 
 on:
   push:
