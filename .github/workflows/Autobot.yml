@@ -53,7 +53,7 @@ jobs:
     # Deploy to Hostinger VPS
     # ----------------------------------------
     - name: Deploy to Hostinger VPS
-      uses: appleboy/ssh-action@latest
+      uses: appleboy/ssh-action@v0.1.10
       with:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USER }}
